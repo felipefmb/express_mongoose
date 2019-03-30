@@ -1,5 +1,6 @@
 const server = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const uri = "mongodb://localhost/agenda";
 mongoose.connect(uri);
@@ -20,6 +21,7 @@ mongoose.model('contatos', _modelContatos)
 
 
 const app = server();
+app.use(bodyParser());
 
 app.get('/contatos', function(req,resp) {
     var contatosModel = mongoose.model('contatos');
@@ -33,7 +35,14 @@ app.get('/contatos', function(req,resp) {
 })
 
 app.post('/contatos', function(req,resp) {
-
+    var contatosModel = mongoose.model('contatos');
+    contatosModel.create(req.body, function(err, dados) {
+        if(err) {
+            resp.send(500, err);
+        }else{
+            resp.send(200, dados);
+        }
+    })
 })
 
 app.listen(3000, function () {
