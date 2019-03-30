@@ -1,0 +1,21 @@
+{
+  "name": "agenda-aula",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "keywords": [],
+  "author": "Felipe Marques Batista <felipefmb@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.20"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
